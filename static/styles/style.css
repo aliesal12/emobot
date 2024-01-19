@@ -15,7 +15,7 @@
 .chat-container {
   width: 100%;
   overflow-y: scroll;
-  padding: 3% 0 4% 0;
+  padding: 3% 0 9% 0;
 }
 .chat-messages {
   padding-bottom: 10%;
@@ -96,16 +96,20 @@ body {
   position: fixed;
   z-index: 1000;
   background-color: #009bd8;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 25px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .emoji-box .emoji {
   height: 50px;
   cursor: pointer;
-  margin-right: 35px; /* Add spacing between emojis */
+  /* margin-right: 35px; Add spacing between emojis */
 }
 
 .logo {
@@ -125,39 +129,43 @@ body {
   height: 37px;
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   /* Adjust styles for tablets and smaller screens here */
 
-  .app-pane {
-    height: 10%;
-  }
-
   .chat-container {
-    padding-top: 5%;
+    padding: 7% 0 13% 0;
   }
-
-  .mt-3 {
-    height: 10%;
+  .emoji-box {
+    margin-bottom: 100px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .emoji-box .emoji {
+    margin: 0;
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   /* Adjust styles for mobile devices here */
 
-  .app-pane {
-    height: 50%;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    padding: 0 10px;
-  }
-
   .chat-container {
-    padding-top: 10%;
+    padding: 10% 0 17% 0;
   }
 
   .mt-3 {
-    height: 15%;
+    height: 6%;
+  }
+  .emoji-box {
+    margin-bottom: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .emoji-box .emoji {
+    margin: 0;
+    height: 35px;
   }
 }
