@@ -3,6 +3,7 @@ from openai import OpenAI
 from os import getenv
 import numpy as np
 from datetime import datetime
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -98,4 +99,4 @@ def process_api_request_teacher():
     return(completion.choices[0].message.content)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=5000)

@@ -1,0 +1,5 @@
+flask==3.0.1
+openai==1.11.0
+numpy==1.26.3
+requests==2.31.0
+waitress==2.1.2
