@@ -56,15 +56,16 @@ def process_api_request_student():
         if len(context[session])>=9:
             context[session].append({"role": "user", "content": user_message+" Thank you. this was my last prompt. Give me answer to what i asked and conclude the chat."})
         else:
-            context[session].append({"role": "user", "content": user_message})
+            context[session].append({"role": "user", "content": user_message+" Answer in short paragraph"})
     else:
-        context[session]=[{"role":"system","content":"You are a therapist for children aged between 5-9 at a school. Your job is to listen to them and talk to them as a friend. Always be consise. Use as simple english as you can. And dont go off topic. Answer in short sentences."},
-              {"role":"user","content":user_message}]
+        context[session]=[{"role":"system","content":"You are a therapist for children aged between 5-9 at a school. Your job is to listen to them and talk to them as a friend. Always be consise. Use as simple english as you can. English is their second language, Keep that in mind and form your answers according to ages 5-9. And dont go off topic. Answer in short sentences. If I ask something non related to mental health or school related things, kindly refuse to answer. Give answers in short paragraphs"},
+              {"role":"user","content":user_message+" Answer in short paragraph"}]
     completion = client.chat.completions.create(
     model="mistralai/mixtral-8x7b-instruct",
     messages=context[session]
     )
     context[session].append({"role":"assistant","content":completion.choices[0].message.content})
+
     if count>=20:
         sessionhandler()
         count=0
@@ -99,4 +100,5 @@ def process_api_request_teacher():
     return(completion.choices[0].message.content)
 
 if __name__ == '__main__':
+    #app.run(host='0.0.0.0', port=5000)  # Run the Flask development server on port 5000
     serve(app, host='0.0.0.0', port=5000)
