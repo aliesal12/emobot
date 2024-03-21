@@ -172,16 +172,16 @@
       
       function emojibutton(message){
         addMessage("Me: "+message, "user");
-        if (message=="🙂"){
+        if(message=="🙂"){
           message='I am feeling so happy. ';
         }
-        elif(message=="😞"){
+        else if(message=="😞"){
           message='I am feeling really sad. ';
         }
-        elif(message=="😡"){
+        else if(message=="😡"){
           message='I am really really angry. ';
         }
-        elif(message=="😝"){
+        else if(message=="😝"){
           message='I am really really excited!!!! ';
         }
         fetch("/student/api", {
